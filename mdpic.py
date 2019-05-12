@@ -15,10 +15,12 @@ import yaml
 from threading import Thread
 from PIL import ImageGrab
 from pynput import keyboard
+from git import Repo
 
 current_key_pressed = []  # 当前按下的按键
 github_url = ''  # 填入你的github上图床仓库的地址
-
+repo = Repo(os.getcwd())
+git = repo.git
 
 
 def init():
@@ -36,12 +38,24 @@ def savepic():
     im = ImageGrab.grabclipboard()
     filename = len(os.listdir('images'))
     im.save(r'images/image_' + str(filename) + '.png')
-    print('got it!')
+    upload('images\\image_' + str(filename) + '.png')
+
+
+def upload(filename):
+    # index = repo.index
+    # print(index.add([os.path.join(os.getcwd(), filename)]))
+    # print(index.commit('Add ' + filename))
+    # remote = repo.remote()
+    # remote.push()
+    git.add(os.path.join(os.getcwd(), filename))
+    git.commit('-m', 'Add ' + filename)
+    git.push()
 
 
 def on_release(key):
     if str(key) in current_key_pressed:
         current_key_pressed.remove(str(key))
+
 
 def on_press(key):
     if str(key) not in current_key_pressed and str(key) != 'Key.f1':
