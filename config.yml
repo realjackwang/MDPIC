@@ -1,0 +1,11 @@
+# MDPIC Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# URL
+## This is your github repository's URl, I suggest you fork mine directly
+## instead of create one by yourself, that's will be much easier.
+## eg. https://skycity233.github.io/MDPIC
+github_url: https://skycity233.github.io/MDPIC
+language: zh-CN
+
