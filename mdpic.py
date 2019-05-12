@@ -8,6 +8,7 @@
 #   date     : 2019/5/12 下午 1:26
 #   desc     : 
 # =====================================================
+
 import os
 import wx
 import wx.adv
@@ -24,7 +25,7 @@ repository_name = ''
 
 repo = Repo(os.getcwd())
 git = repo.git
-
+listener = None
 
 def init():
     with open('config.yml', 'r', encoding='utf-8') as f:
@@ -61,7 +62,7 @@ def on_release(key):
 def on_press(key):
     if str(key) not in current_key_pressed and str(key) != 'Key.f1':
         current_key_pressed.append(str(key))
-    print(current_key_pressed)
+
 
 
 class ThreadKey(Thread):
@@ -70,8 +71,10 @@ class ThreadKey(Thread):
         self.start()  # start the thread
 
     def run(self):
-        with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
-            listener.join()
+        global listener
+        listener = keyboard.Listener(on_press=on_press, on_release=on_release)
+        listener.start()
+
 
 
 class ThreadUpload(Thread):
@@ -88,17 +91,19 @@ class ThreadUpload(Thread):
 
 class MyTaskBarIcon(wx.adv.TaskBarIcon):
     ICON = "logo.ico"  # 图标地址
-    ID_ABOUT = wx.NewId()  # 菜单选项“关于”的ID
-    ID_EXIT = wx.NewId()  # 菜单选项“退出”的ID
-    ID_SHOW_WEB = wx.NewId()  # 菜单选项“显示页面”的ID
+    ID_ABOUT = wx.NewIdRef()  # 菜单选项“关于”的ID
+    ID_EXIT = wx.NewIdRef()  # 菜单选项“退出”的ID
+    ID_SHOW_WEB = wx.NewIdRef()  # 菜单选项“显示页面”的ID
     TITLE = "MDPIC"  # 鼠标移动到图标上显示的文字
 
     def __init__(self):
         wx.adv.TaskBarIcon.__init__(self)
         self.SetIcon(wx.Icon(self.ICON), self.TITLE)  # 设置图标和标题
+
         self.Bind(wx.EVT_MENU, self.onAbout, id=self.ID_ABOUT)  # 绑定“关于”选项的点击事件
         self.Bind(wx.EVT_MENU, self.onExit, id=self.ID_EXIT)  # 绑定“退出”选项的点击事件
         self.Bind(wx.EVT_MENU, self.onShowWeb, id=self.ID_SHOW_WEB)  # 绑定“显示页面”选项的点击事件
+
         if github_username == '' or repository_name == '':
             wx.MessageBox('config.yml is not complete yet, please fill it', "Warning")
             wx.Exit()
@@ -109,6 +114,8 @@ class MyTaskBarIcon(wx.adv.TaskBarIcon):
 
     # “退出”选项的事件处理器
     def onExit(self, event):
+        global listener
+        listener.stop()
         wx.Exit()
 
     # “显示页面”选项的事件处理器
