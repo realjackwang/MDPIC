@@ -16,9 +16,12 @@ from threading import Thread
 from PIL import ImageGrab
 from pynput import keyboard
 from git import Repo
+from pyperclip import copy
 
 current_key_pressed = []  # 当前按下的按键
-github_url = ''  # 填入你的github上图床仓库的地址
+github_username = ''  # 填入你的github的用户名
+repository_name = ''
+
 repo = Repo(os.getcwd())
 git = repo.git
 
@@ -28,31 +31,29 @@ def init():
         cont = f.read()
         config = yaml.load(cont, Loader=yaml.BaseLoader)
         try:
-            global github_url
-            github_url = config['github_url']
+            global github_username, repository_name
+            github_username = config['github_username']
+            repository_name = config['repository_name']
         except:
             pass
 
 
 def savepic():
-    im = ImageGrab.grabclipboard()
-    filename = len(os.listdir('images'))
-    im.save(r'images/image_' + str(filename) + '.png')
-    upload('images\\image_' + str(filename) + '.png')
-
-
-def upload(filename):
-    # index = repo.index
-    # print(index.add([os.path.join(os.getcwd(), filename)]))
-    # print(index.commit('Add ' + filename))
-    # remote = repo.remote()
-    # remote.push()
-    git.add(os.path.join(os.getcwd(), filename))
-    git.commit('-m', 'Add ' + filename)
-    git.push()
+    try:
+        im = ImageGrab.grabclipboard()
+        filename = len(os.listdir('images'))
+        im.save(r'images/image_' + str(filename) + '.png')
+        ThreadUpload('images\\image_' + str(filename) + '.png')
+        copy(
+            'https://raw.githubusercontent.com/' + github_username + '/' + repository_name + '/master/images/image_' + str(
+                filename) + '.png')
+    except:
+        pass
 
 
 def on_release(key):
+    if 'Key.ctrl_l' in current_key_pressed and "'m'" in current_key_pressed:
+        savepic()
     if str(key) in current_key_pressed:
         current_key_pressed.remove(str(key))
 
@@ -60,12 +61,10 @@ def on_release(key):
 def on_press(key):
     if str(key) not in current_key_pressed and str(key) != 'Key.f1':
         current_key_pressed.append(str(key))
-    if 'Key.ctrl_l' in current_key_pressed and "'m'" in current_key_pressed:
-        savepic()
     print(current_key_pressed)
 
 
-class TestThread(Thread):
+class ThreadKey(Thread):
     def __init__(self):
         Thread.__init__(self)
         self.start()  # start the thread
@@ -73,6 +72,18 @@ class TestThread(Thread):
     def run(self):
         with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
             listener.join()
+
+
+class ThreadUpload(Thread):
+    def __init__(self, filename):
+        Thread.__init__(self)
+        self.filename = filename
+        self.start()  # start the thread
+
+    def run(self):
+        git.add(os.path.join(os.getcwd(), self.filename))
+        git.commit('-m', 'Add ' + self.filename)
+        git.push()
 
 
 class MyTaskBarIcon(wx.adv.TaskBarIcon):
@@ -88,7 +99,7 @@ class MyTaskBarIcon(wx.adv.TaskBarIcon):
         self.Bind(wx.EVT_MENU, self.onAbout, id=self.ID_ABOUT)  # 绑定“关于”选项的点击事件
         self.Bind(wx.EVT_MENU, self.onExit, id=self.ID_EXIT)  # 绑定“退出”选项的点击事件
         self.Bind(wx.EVT_MENU, self.onShowWeb, id=self.ID_SHOW_WEB)  # 绑定“显示页面”选项的点击事件
-        if github_url == '':
+        if github_username == '' or repository_name == '':
             wx.MessageBox('config.yml is not complete yet, please fill it', "Warning")
             wx.Exit()
 
@@ -122,7 +133,7 @@ class MyFrame(wx.Frame):
     def __init__(self):
         wx.Frame.__init__(self)
         MyTaskBarIcon()  # 显示系统托盘图标
-        TestThread()
+        ThreadKey()
 
 
 class MyApp(wx.App):
