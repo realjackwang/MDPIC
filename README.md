@@ -4,7 +4,7 @@
 <br> Use Github Build Your Own Markdown Picture Server.
 <br>
 <a href="https://github.com/skycity233/MDPIC">Preview</a> |
-<a href="https://github.com/skycity233/MDPIC">Download</a>
+<a href="https://github.com/skycity233/MDPIC/releases/download/v1.0/MDPIC.rar">Download</a>
 <br>
 </p>
 
