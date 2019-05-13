@@ -24,16 +24,22 @@ After you download or git clone the fork repository you will get this in you own
 
 Make sure to edit the config.yml first.
 
-If got the full python environment, you can run the script by:
+- If got the full python environment, you can run the script by:
 
 ```shell
 python mdpic.py
 ```
 
-If not, you just need to click the mdpic.exe to run the script.
+- If not, you just need to click the mdpic.exe to run the script.
 
 **When the script running background**
 
 1. Copy a image from the website or take a screenshot by some other screenshot script (eg. Snipaste)
 2. Press Ctrl + M to upload your images in the clipboard to your github page
 3. The image's URL will send to your Clipboard, just paste it in your Markdown file.
+
+🔨 Improvement
+
+I fail to hide the console, I tried the `pyinstaller -F -w` to build the .exe file, but it wasn't work, so I have to remove the option `-w` to build successfully.
+
+If anyone got a suggestion can fix it, just Email me or make a pull requests. Thks! :smile:
