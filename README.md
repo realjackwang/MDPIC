@@ -20,11 +20,11 @@ Once started, please fill the configuration files named [config.yml](https://git
 
 After you download or git clone the fork repository you will get this in you own folder
 
-![folder](https://raw.githubusercontent.com/skycity233/MDPIC/master/images/image_2.png)
+![folder](https://raw.githubusercontent.com/skycity233/MYMDPIC/master/images/image_20191214215017952015.png)
 
 Make sure to edit the config.yml first.
 
-- If got the full python environment, you can run the script by:
+- If you got the full python environment, you can run the script by:
 
 ```shell
 python mdpic.py
