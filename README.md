@@ -3,8 +3,8 @@
 <img class="not-gallery-item" height="48" src="https://i.loli.net/2019/12/14/L3ZzHyqvshx9c2o.png">
 <br> 利用Github搭建自己的图床！
 <br>
-<a href="https://github.com/skycity233/MDPIC">Preview</a> |
-<a href="https://github.com/skycity233/MDPIC/releases/download/v1.0/MDPIC.rar">Download</a>
+<a href="https://github.com/skycity233/MDPIC">简介</a> |
+<a href="https://github.com/skycity233/MDPIC/README_EN.md">English Version</a>
 <br>
 </p>
 
