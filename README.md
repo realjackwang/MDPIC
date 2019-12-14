@@ -9,7 +9,7 @@
 </p>
 
 ### :cd: Installation
-Download and extract or fork this & git clone your own frok repository, and that's it!
+fork this repository & git clone your own frok repository, and that's it!
 
 ```shell
 git clone [your froked repository]
