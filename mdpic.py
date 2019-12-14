@@ -29,6 +29,7 @@ hotkey = ''
 repo = Repo(os.getcwd())
 git = repo.git
 listener = None
+text = ''
 
 
 def write_keycode():
@@ -48,10 +49,20 @@ def init():
         cont = f.read()
         config = yaml.load(cont, Loader=yaml.BaseLoader)
         try:
-            global github_username, repository_name, hotkey
+            global github_username, repository_name, hotkey, text
             github_username = config['github_username']
             repository_name = config['repository_name']
             hotkey = config['hotkey'].lower().split('+')
+            language = config['language']
+            with open('language/'+language + '.yml', 'r', encoding='utf-8') as f:
+                cont = f.read()
+                config = yaml.load(cont, Loader=yaml.BaseLoader)
+                global text
+                text = [config['Info'],
+                        config['Exit'],
+                        config['Upload Clipboard To GitHub'],
+                        config['config.yml is not complete yet, please fill it']]
+
             for i in range(len(hotkey)):
                 hotkey[i] = keycode[hotkey[i]]
         except KeyError:
@@ -155,7 +166,7 @@ class MyTaskBarIcon(wx.adv.TaskBarIcon):
         self.Bind(wx.EVT_MENU, self.onShowWeb, id=self.ID_SHOW_WEB)  # 绑定“显示页面”选项的点击事件
 
         if github_username == '' or repository_name == '':
-            wx.MessageBox('config.yml is not complete yet, please fill it', "Warning")
+            wx.MessageBox(text[3], "Warning")
             wx.Exit()
 
         self.frame2 = Trans(parent=None, title='上传中', size=(50, 20))
@@ -195,9 +206,9 @@ class MyTaskBarIcon(wx.adv.TaskBarIcon):
 
     # 获取菜单的属性元组
     def getMenuAttrs(self):
-        return [('Upload Clipboard To GitHub', self.ID_SHOW_WEB),
-                ('Info', self.ID_ABOUT),
-                ('Exit', self.ID_EXIT)]
+        return [(text[2], self.ID_SHOW_WEB),
+                (text[0], self.ID_ABOUT),
+                (text[1], self.ID_EXIT)]
 
     def Uploading(self):
         pos = wx.GetMousePosition()
@@ -245,11 +256,9 @@ class MyFrame(wx.Frame):
         MyTaskBarIcon()  # 显示系统托盘图标
 
 
-
 class MyApp(wx.App):
     def OnInit(self):
         MyFrame()
-
         return True
 
 

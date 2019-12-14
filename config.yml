@@ -1,9 +1,9 @@
 # MDPIC Configuration
-## Docs: https://github.com/skycity233/MDPIC/READMEmd
+## Docs: https://github.com/skycity233/MDPIC/README.md
 ## Source: https://github.com/skycity233/MDPIC
 
-github_username: skycity233
+github_username:
 repository_name: MDPIC
-language: zh-CN
+language: en-US
 hotkey: f8
 
