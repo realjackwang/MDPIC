@@ -44,6 +44,8 @@ def write_keycode():
 
 
 def init():
+    if not os.path.exists('images'):
+        os.mkdir('images')
     write_keycode()
     with open('config.yml', 'r', encoding='utf-8') as f:
         cont = f.read()
