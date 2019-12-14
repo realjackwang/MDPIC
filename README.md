@@ -4,7 +4,7 @@
 <br> 利用Github搭建自己的图床！
 <br>
 <a href="https://github.com/skycity233/MDPIC">简介</a> |
-<a href="https://github.com/skycity233/MDPIC/README_EN.md">English Version</a>
+<a href="https://github.com/skycity233/MDPIC/blob/master/README_EN.md">English Version</a>
 <br>
 </p>
 
