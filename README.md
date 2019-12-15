@@ -45,5 +45,5 @@ git clone [your repository]
 3.上传成功后，会有提示，同时url会返回到你的剪贴板。
 
 <p align="center"">
-<img height="48" src="https://raw.githubusercontent.com/skycity233/MYMDPIC/master/images/image_20191215152823895879.gif">
+<img height="400" src="https://raw.githubusercontent.com/skycity233/MYMDPIC/master/images/image_20191215152823895879.gif">
 </p>
