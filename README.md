@@ -42,7 +42,7 @@ git clone [your repository]
 
 2.按下F8上传你的图片到你的github（**快捷键可以通过修改config.yml自定义**）
 
-3.上传成功后，会有提示，同时url会返回到你的剪贴板。
+3.上传成功后，会有提示，同时url会返回到你的剪贴板。（**url会瞬间给你，但是github上传还需一定时间，你可以在markdown中先引用，过一会儿github的图片才会显示**）
 
 <p align="center"">
 <img height="400" src="https://raw.githubusercontent.com/skycity233/MYMDPIC/master/images/image_20191215152823895879.gif">
