@@ -20,7 +20,7 @@ scoop install git
 
 2.将git连接远程仓库（Github）,[教程](https://www.runoob.com/git/git-remote-repo.html)
 
-3.点击[此处](https://github.com/new)新建一个仓库用来创建图床
+3.点击[此处](https://github.com/new)新建一个仓库用来存放图片
 
 4.点击此处[下载MdPic](https://github.com/skycity233/MDPIC/releases/download/v1.1/mdpic.rar)
 
