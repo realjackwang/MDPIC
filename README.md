@@ -43,3 +43,7 @@ git clone [your repository]
 2.按下F8上传你的图片到你的github（**快捷键可以通过修改config.yml自定义**）
 
 3.上传成功后，会有提示，同时url会返回到你的剪贴板。
+
+<p align="center"">
+<img height="48" src="https://i.loli.net/2019/12/14/L3ZzHyqvshx9c2o.png">
+</p>
