@@ -1,3 +1,6 @@
+# This Page Need Update, Please Wait.
+> The following introduction is out to date, don't try it till it has updated.
+
 # MDPIC
 <p align="center" class="has-mb-6">
 <img class="not-gallery-item" height="48" src="https://i.loli.net/2019/12/14/L3ZzHyqvshx9c2o.png">
@@ -8,7 +11,6 @@
 <br>
 </p>
 
-# This Page Need Update, Please Wait.
 
 ### :cd: Installation
 fork this repository & git clone your own frok repository, and that's it!
