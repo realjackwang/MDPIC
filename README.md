@@ -46,4 +46,18 @@ git clone [your repository]
 
 <p align="center"">
 <img height="400" src="https://raw.githubusercontent.com/skycity233/MYMDPIC/master/images/image_20191215152823895879.gif">
+<br> 使用截图工具上传
+<br>
+</p>
+                                                                                                                         
+<p align="center"">
+<img height="400" src="https://raw.githubusercontent.com/skycity233/MYMDPIC/master/images/image_20191215152823895879.gif">
+<br> 复制文件上传
+<br>
+</p>
+
+<p align="center"">
+<img height="400" src="https://raw.githubusercontent.com/skycity233/MYMDPIC/master/images/image_20191215152823895879.gif">
+<br> 复制多个文件上传
+<br>
 </p>
