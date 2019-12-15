@@ -1,45 +1,47 @@
 # MDPIC
 <p align="center" class="has-mb-6">
 <img class="not-gallery-item" height="48" src="https://i.loli.net/2019/12/14/L3ZzHyqvshx9c2o.png">
-<br> Use Github Build Your Own Markdown Picture Server.
+<br> 利用Github搭建自己的图床！
 <br>
-<a href="https://github.com/skycity233/MDPIC">Preview</a> |
-<a href="https://github.com/skycity233/MDPIC/releases/download/v1.0/MDPIC.rar">Download</a>
+<a href="https://github.com/skycity233/MDPIC">简介</a> |
+<a href="https://github.com/skycity233/MDPIC/blob/master/README_EN.md">English Version</a>
 <br>
 </p>
 
-### :cd: Installation
-Download and extract or fork this & git clone your own frok repository, and that's it!
+### :cd: 安装
+首先fork这个本仓库，然后在电脑本地clone下来
 
 ```shell
 git clone [your froked repository]
 ```
-Once started, please fill the configuration files named [config.yml](https://github.com/skycity233/MDPIC/blob/master/config.yml).
+完成后，打开[config.yml](https://github.com/skycity233/MDPIC/blob/master/config.yml)将github_username和repository_name修改为你的用户名和仓库名。
 
-### :gift: How To Use
+### :gift: 如何使用
 
-After you download or git clone the fork repository you will get this in you own folder
+当你clone到本地后，你会得到如下的文件夹
 
-![folder](https://raw.githubusercontent.com/skycity233/MDPIC/master/images/image_2.png)
+![folder](https://raw.githubusercontent.com/skycity233/MYMDPIC/master/images/image_20191214215017952015.png)
 
-Make sure to edit the config.yml first.
+确保你已经修改了config.yml再进行下一步
 
-- If got the full python environment, you can run the script by:
+- 如果你有完整的python环境可以运行mdpic.py，不过推荐使用exe。
 
 ```shell
 python mdpic.py
 ```
 
-- If not, you just need to click the mdpic.exe to run the script.
+- 直接点击exe打开软件，可以在桌面创建快捷方式便于打开。
 
-**When the script running background**
+**当软件运行后**
 
-1. Copy a image from the website or take a screenshot by some other screenshot script (eg. Snipaste)
-2. Press Ctrl + M to upload your images in the clipboard to your github page
-3. The image's URL will send to your Clipboard, just paste it in your Markdown file.
+1.复制一张照片到剪贴板，或者使用截图软件截图到剪贴板（例如Snipaste）
 
-🔨 Improvement
+2.按下F8上传你的图片到你的github（**快捷键可以通过修改config.yml自定义**）
 
-I fail to hide the console, I tried the `pyinstaller -F -w` to build the .exe file, but it wasn't work, so I have to remove the option `-w` to build successfully.
+3.上传成功后，会有提示，同时url会返回到你的剪贴板。
 
-If anyone got a suggestion can fix it, just Email me or make a pull requests. Thks! :smile:
+### 🔨 改进
+
+由于某些原因，命令行未能隐藏，本人正在寻找解决方案，我试过`pyinstaller -F -w` ，但是无法运行，应该和我使用了GitPython有关。
+
+如果有人有解决方案，不妨提交一个issue，或者发邮件给我，感谢！:smile:
