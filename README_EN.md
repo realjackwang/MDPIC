@@ -8,6 +8,8 @@
 <br>
 </p>
 
+# This Page Need Update, Please Wait.
+
 ### :cd: Installation
 fork this repository & git clone your own frok repository, and that's it!
 
