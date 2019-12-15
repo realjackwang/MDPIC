@@ -12,7 +12,7 @@
 
 1.在你的电脑上安装git
 
-拥有scoop的同学可以用Power Shell直接安装，没有的可以点击[下载安装包](https://git-scm.com/)
+拥有scoop的同学可以用Power Shell直接安装，没有的可以点击[下载git安装包](https://git-scm.com/)
 
 ```shell
 scoop install git
