@@ -1,5 +1,5 @@
 # This Page Need Update, DO NOOOOOOOOOOOOOOOOOOOT TRY IT
-> The following introduction is out to date, don't try it till it has updated.
+> The following introduction is out to date, don't try it till it has updated. check the chinese version first.
 
 # MDPIC
 <p align="center" class="has-mb-6">
