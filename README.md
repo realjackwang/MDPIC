@@ -58,6 +58,6 @@ git clone [your repository]
 
 <p align="center"">
 <img height="400" src="https://raw.githubusercontent.com/skycity233/MYMDPIC/master/images/image_20191215153443403012.gif">
-<br> 复制多个文件上传
+<br> 复制多个文件上传（暂不支持）
 <br>
 </p>
